@@ -1,5 +1,6 @@
 import { ConnectionOptions, DefaultJobOptions } from "bullmq";
 import IORedis from "ioredis";
+import {Redis} from "ioredis"
 
 // export const redisConnection:ConnectionOptions = {
 //     host: process.env.REDIS_HOST,
@@ -8,10 +9,15 @@ import IORedis from "ioredis";
 
 //   };
 
-export const redisConnection: ConnectionOptions = new IORedis.default({
-  host: "localhost", // redis host
-  port: 6379, //port
-  maxLoadingRetryTime: null, // no retry
+// export const redisConnection: ConnectionOptions = new IORedis.default({
+//   host: "localhost", // redis host
+//   port: 6379, //port
+//   maxLoadingRetryTime: null, // no retry
+//   maxRetriesPerRequest: null, // no retry
+// });
+
+export const redisConnection: ConnectionOptions =new Redis(process.env.REDIS_URL,{
+    maxLoadingRetryTime: null, // no retry
   maxRetriesPerRequest: null, // no retry
 });
 
