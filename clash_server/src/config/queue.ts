@@ -1,5 +1,5 @@
 import { ConnectionOptions, DefaultJobOptions } from "bullmq";
-import IORedis from "ioredis";
+// import IORedis from "ioredis";
 import {Redis} from "ioredis"
 
 // export const redisConnection:ConnectionOptions = {
